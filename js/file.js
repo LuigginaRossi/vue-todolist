@@ -20,6 +20,9 @@ const app = createApp({
         };
     },
     methods: {
+        deleteTask (indexTaskDeleted){
+            this.taskList.splice(indexTaskDeleted, 1)
+        }
         
     }  
 }).mount("#app");

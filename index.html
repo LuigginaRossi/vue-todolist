@@ -36,13 +36,17 @@
                 che quindi viene aggiunto alla lista dei todo esistenti. -->
             <h2 class="text-center py-4">TO DO LIST:</h2>
                 
-            <div v-for="task in taskList" class="container-task my-2 d-flex">
+            <div v-for="(task, i)  in taskList" class="container-task my-2 d-flex">
+
                 <label class="form-check form-switch flex-fill">
                     <input type="checkbox" v-model="task.done" class="form-check-input" role=""switch>
                     {{task.text}}
                     <span class="badge category ms-3">{{task.category}}</span>
                 </label>
-                <button class="btn btn-light btn-sm"> <i class="fa-solid fa-x"></i> </button>
+
+                <button class="btn btn-light btn-sm" @click="deleteTask(i)"> 
+                    <i class="fa-solid fa-x"></i> 
+                </button>
             </div>
           
         </div>
