@@ -13,7 +13,13 @@ const app = createApp({
                     done: false,
                 },
                 {
-                    text:"Ciclare con v-for",
+                    text:"Collegare testo a elementi della taskList js",
+                    done: false,
+                },
+            ],
+            newTask:[
+                {
+                    text: "",
                     done: false,
                 },
             ],
@@ -21,7 +27,16 @@ const app = createApp({
     },
     methods: {
         deleteTask (indexTaskDeleted){
-            this.taskList.splice(indexTaskDeleted, 1)
+            const confirmed = confirm("Vuoi confermare la cancellazione?");
+            
+            if(confirmed){
+                this.taskList.splice(indexTaskDeleted, 1);
+            }
+        },
+        addNewTask(){
+            this.taskList.push({
+                text: this.newTask.text,
+            })
         }
         
     }  
