@@ -34,7 +34,7 @@
             <!-- Predisporre un campo di input testuale e un pulsante “aggiungi”: cliccando sul pulsante,
                 il testo digitato viene letto e utilizzato per creare un nuovo todo,
                 che quindi viene aggiunto alla lista dei todo esistenti. -->
-            <h2 class="text-center py-4">TO DO LIST:</h2>
+            <h2 class="text-center py-4 ">TO DO LIST:</h2>
             <form @submit.prevent="addNewTask">
                 <div class="input-group mb-3">
                     <input v-model="newTask.text" type="text" class="form-control" placeholder="Insert new task" aria-label="Recipient's username" aria-describedby="button-addon2">
@@ -48,9 +48,10 @@
             <div v-for="(task, i)  in taskList" class="container-task my-2 d-flex">
 
                 <label class="form-check form-switch flex-fill">
-                    <input type="checkbox" v-model="task.done" class="form-check-input" role=""switch>
-                    {{task.text}}
-                    <span class="badge category ms-3">{{task.category}}</span>
+                    <input type="checkbox" v-model="task.done" class="form-check-input" role="switch" >
+                  
+                    <div :class="{'text-danger text-decoration-line-through': task.done, 'text-primary': !task.done, }">  {{task.text}}</div>
+                    <span class="badge category ms-3" >{{task.category}}</span>
                 </label>
 
                 <button class="btn btn-light btn-sm" @click="deleteTask(i)"> 

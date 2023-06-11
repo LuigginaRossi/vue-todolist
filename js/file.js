@@ -37,7 +37,6 @@ const app = createApp({
             this.taskList.push({
                 text: this.newTask.text,
             })
-        }
-        
+        },
     }  
 }).mount("#app");
